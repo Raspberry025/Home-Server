@@ -1,0 +1,16 @@
+# Secrets and Credentials
+*.env
+*password*
+*.key
+*.pem
+slskd.yml          # Ignore the real config, we'll track a sanitized template later
+navidrome.toml     # Same here, if it contains DB passwords
+
+# System files that shouldn't be tracked
+*.log
+*.pid
+*.swp
+.DS_Store
+
+# SSH Keys (CRITICAL)
+.ssh/

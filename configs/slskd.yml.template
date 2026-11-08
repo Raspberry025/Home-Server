@@ -1,0 +1,19 @@
+# Sanitized template of the working slskd configuration
+web:
+  port: 5030
+  contentPath: "wwwroot"
+  authentication:
+    disabled: false
+    username: "admin"
+    password: "YOUR_SECURE_PASSWORD_HERE"
+
+directories:
+  downloads: "/home/sambid/Music/Soulseek/complete"
+  incomplete: "/home/sambid/Music/Soulseek/incomplete"
+
+# Note: 'global' and 'groups' keys must be at the root level in newer slskd versions
+global:
+  upload:
+    slots: 2
+  download:
+    slots: 2
