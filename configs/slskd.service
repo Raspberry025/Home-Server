@@ -1,0 +1,30 @@
+
+---
+
+### 2. `configs/slskd.service`
+Since we spent so much time debugging the `slskd` systemd service, it is highly valuable to keep the *working* version in your repo as a reference. 
+
+Create this file in your `configs/` folder:
+
+```ini
+[Unit]
+Description=SoulSeek Daemon (slskd)
+After=network.target
+
+[Service]
+Type=simple
+User=sambid
+Group=sambid
+# WorkingDirectory is critical for the relative contentPath in the YAML to resolve correctly
+WorkingDirectory=/opt/slskd
+ExecStart=/opt/slskd/slskd --no-logo -c /etc/slskd/slskd.yml
+Restart=always
+RestartSec=5
+# Security hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/home/sambid/Music/Soulseek
+
+[Install]
+WantedBy=multi-user.target
